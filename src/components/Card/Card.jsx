@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import s from './Card.module.css';
 
 export const Card = () => {
   const [followers, setFollowers] = useState(
@@ -8,13 +9,13 @@ export const Card = () => {
     JSON.parse(window.localStorage.getItem('status')) ?? false
   );
 
-  const follow = num => {
+  const toggleFollowing = num => {
     setFollowers(followers => followers + num);
   };
 
   const toggleStatus = () => {
     setStatus(status => (status = !status));
-    status ? follow(-1) : follow(1);
+    status ? toggleFollowing(-1) : toggleFollowing(1);
   };
 
   useEffect(() => {
@@ -26,12 +27,14 @@ export const Card = () => {
   }, [status]);
 
   return (
-    <>
-      <p>{followers}</p>
-
-      <button onClick={toggleStatus} type="button">
-        {status ? 'Follow' : 'Following'}
-      </button>
-    </>
+    <div className={s.cardWrapper}>
+      <div>Image</div>
+      <div>
+        <p>{followers}</p>
+        <button onClick={toggleStatus} type="button" className={s.button}>
+          {status ? 'Following' : 'Follow'}
+        </button>
+      </div>
+    </div>
   );
 };

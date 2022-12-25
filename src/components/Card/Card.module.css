@@ -1,0 +1,34 @@
+.cardWrapper {
+  width: 454px;
+  height: 547px;
+  margin: 0 auto;
+  background: linear-gradient(
+    114.99deg,
+    #471ca9 -0.99%,
+    #5736a3 54.28%,
+    #4b2a99 78.99%
+  );
+  box-shadow: -3px 8px 24px rgba(0, 0, 0, 0.23);
+  border-radius: 24px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  width: 226px;
+  height: 56px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background: #ebd8ff;
+  line-height: 24px;
+  /* change lh */
+  color: #373737;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
