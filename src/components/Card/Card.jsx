@@ -30,7 +30,7 @@ export const Card = () => {
       <p>{followers}</p>
 
       <button onClick={toggleStatus} type="button">
-        {status ? 'Unfollow' : 'Follow'}
+        {status ? 'Follow' : 'Following'}
       </button>
     </>
   );
