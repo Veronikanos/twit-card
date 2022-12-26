@@ -1,6 +1,7 @@
 .cardWrapper {
   width: 454px;
   height: 547px;
+  position: relative;
   margin: 0 auto;
   background: linear-gradient(
     114.99deg,
@@ -10,7 +11,6 @@
   );
   box-shadow: -3px 8px 24px rgba(0, 0, 0, 0.23);
   border-radius: 24px;
-  position: relative;
 }
 
 .cardBlocks {
@@ -24,45 +24,13 @@ p {
   margin: 0;
 }
 
-.button {
-  width: 226px;
-  height: 56px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border: none;
-  border-radius: 12px;
-  outline: none;
-  background: #ebd8ff;
-  line-height: 1.2;
-  color: #373737;
-
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
-.buttonFollow {
-  background: #5cd3a8;
-}
-
-.imageWrapper {
-  margin-top: 34px;
-}
-
-.logo {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  opacity: 0.3;
-}
-
 .avatarContainer {
-  height: 92px;
+  position: absolute;
+  top: 209px;
   width: inherit;
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 209px;
+  height: 92px;
 }
 
 .line {
@@ -101,14 +69,13 @@ p {
   margin: 0 auto;
 }
 
-.info {
-  margin-bottom: 48px;
+.imageWrapper {
+  margin-top: 34px;
 }
 
-.tweets {
-  margin-bottom: 20px;
-}
-
-.followers {
-  margin-bottom: 32px;
+.logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  opacity: 0.3;
 }
