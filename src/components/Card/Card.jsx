@@ -36,10 +36,26 @@ export const Card = () => {
 
   return (
     <div className={s.cardWrapper}>
-      <div className={s.imageWrapper}>
-        <Logo className={s.logo} />
-        <img src={Background} alt="background" />
+      <div className={s.cardBlocks}>
+        <div className={s.imageWrapper}>
+          <Logo className={s.logo} />
+          <img src={Background} alt="background" />
+        </div>
+        <div className={s.info}>
+          <p className={s.tweets}>777 tweets</p>
+          <p className={s.followers}>
+            {handleUIFollowersVisibility()} followers
+          </p>
+          <button
+            onClick={toggleStatus}
+            type="button"
+            className={`${s.button} ${isFollowed && s.buttonFollow}`}
+          >
+            {isFollowed ? 'Following' : 'Follow'}
+          </button>
+        </div>
       </div>
+
       <div className={s.avatarContainer}>
         <div className={s.line}></div>
         <div className={s.avatarWrapper}>
@@ -47,17 +63,6 @@ export const Card = () => {
             <img src={User} alt="avatar" className={s.avatar} />
           </div>
         </div>
-      </div>
-      <div>
-        <p>777 tweets</p>
-        <p>{handleUIFollowersVisibility()} followers</p>
-        <button
-          onClick={toggleStatus}
-          type="button"
-          className={`${s.button} ${isFollowed && s.buttonFollow}`}
-        >
-          {isFollowed ? 'Following' : 'Follow'}
-        </button>
       </div>
     </div>
   );

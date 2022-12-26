@@ -10,6 +10,18 @@
   );
   box-shadow: -3px 8px 24px rgba(0, 0, 0, 0.23);
   border-radius: 24px;
+  position: relative;
+}
+
+.cardBlocks {
+  height: inherit;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  margin: 0;
 }
 
 .button {
@@ -34,8 +46,7 @@
 }
 
 .imageWrapper {
-  position: relative;
-  padding-top: 34px;
+  margin-top: 34px;
 }
 
 .logo {
@@ -48,9 +59,10 @@
 .avatarContainer {
   height: 92px;
   width: inherit;
-  position: relative;
   display: flex;
   align-items: center;
+  position: absolute;
+  top: 209px;
 }
 
 .line {
@@ -87,4 +99,16 @@
 
 .avatar {
   margin: 0 auto;
+}
+
+.info {
+  margin-bottom: 48px;
+}
+
+.tweets {
+  margin-bottom: 20px;
+}
+
+.followers {
+  margin-bottom: 32px;
 }
