@@ -9,8 +9,8 @@ export const Card = () => {
   const [followers, setFollowers] = useState(
     JSON.parse(window.localStorage.getItem('followers')) ?? 100500
   );
-  const [status, setStatus] = useState(
-    JSON.parse(window.localStorage.getItem('status')) ?? false
+  const [isFollowed, setIsFollowed] = useState(
+    JSON.parse(window.localStorage.getItem('isFollowed')) ?? false
   );
 
   const toggleFollowing = num => {
@@ -18,8 +18,8 @@ export const Card = () => {
   };
 
   const toggleStatus = () => {
-    setStatus(status => (status = !status));
-    status ? toggleFollowing(-1) : toggleFollowing(1);
+    setIsFollowed(isFollowed => (isFollowed = !isFollowed));
+    isFollowed ? toggleFollowing(-1) : toggleFollowing(1);
   };
 
   useEffect(() => {
@@ -27,8 +27,12 @@ export const Card = () => {
   }, [followers]);
 
   useEffect(() => {
-    window.localStorage.setItem('status', JSON.stringify(status));
-  }, [status]);
+    window.localStorage.setItem('isFollowed', JSON.stringify(isFollowed));
+  }, [isFollowed]);
+
+  const handleUIFollowersVisibility = () => {
+    return new Intl.NumberFormat('en-US').format(followers);
+  };
 
   return (
     <div className={s.cardWrapper}>
@@ -36,24 +40,23 @@ export const Card = () => {
         <Logo className={s.logo} />
         <img src={Background} alt="background" />
       </div>
-      {/* <div className={s.avatarContainer}> */}
-      <div className={s.line}>
+      <div className={s.avatarContainer}>
+        <div className={s.line}></div>
         <div className={s.avatarWrapper}>
           <div className={s.avatarBackground}>
             <img src={User} alt="avatar" className={s.avatar} />
           </div>
         </div>
       </div>
-      {/* </div> */}
       <div>
         <p>777 tweets</p>
-        <p>{followers} followers</p>
+        <p>{handleUIFollowersVisibility()} followers</p>
         <button
           onClick={toggleStatus}
           type="button"
-          className={`${s.button} ${status && s.buttonFollow}`}
+          className={`${s.button} ${isFollowed && s.buttonFollow}`}
         >
-          {status ? 'Following' : 'Follow'}
+          {isFollowed ? 'Following' : 'Follow'}
         </button>
       </div>
     </div>
