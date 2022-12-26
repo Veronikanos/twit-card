@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import s from './Card.module.css';
 
+import Background from '../../assets/images/picture.png';
+import User from '../../assets/images/Hansel.png';
+import { ReactComponent as Logo } from '../../assets/images/logo.svg';
+
 export const Card = () => {
   const [followers, setFollowers] = useState(
     JSON.parse(window.localStorage.getItem('followers')) ?? 100500
@@ -28,10 +32,27 @@ export const Card = () => {
 
   return (
     <div className={s.cardWrapper}>
-      <div>Image</div>
+      <div className={s.imageWrapper}>
+        <Logo className={s.logo} />
+        <img src={Background} alt="background" />
+      </div>
+      {/* <div className={s.avatarContainer}> */}
+      <div className={s.line}>
+        <div className={s.avatarWrapper}>
+          <div className={s.avatarBackground}>
+            <img src={User} alt="avatar" className={s.avatar} />
+          </div>
+        </div>
+      </div>
+      {/* </div> */}
       <div>
-        <p>{followers}</p>
-        <button onClick={toggleStatus} type="button" className={s.button}>
+        <p>777 tweets</p>
+        <p>{followers} followers</p>
+        <button
+          onClick={toggleStatus}
+          type="button"
+          className={`${s.button} ${status && s.buttonFollow}`}
+        >
           {status ? 'Following' : 'Follow'}
         </button>
       </div>
